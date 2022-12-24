@@ -1,7 +1,0 @@
-.gitignore
-.vscode
-/bin
-/obj
-.idea
-033-packing-inventory.csproj
-Folder.DotSettings.user
