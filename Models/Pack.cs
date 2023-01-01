@@ -9,14 +9,17 @@ public class Pack
     public int CurrentNumberItems { get; set; }
     public int CurrentWeight { get; set; }
     public float CurrentVolume { get; set; }
+    
     public InventoryItem[] PackItems { get; set; } = new InventoryItem[MaxNumberItems];
 
     // Attempt to add items to the pack
     public bool Add(InventoryItem item)
     {
-        if (item.Weight + CurrentWeight > MaxWeight 
-            || item.Volume + CurrentVolume > MaxVolume
-            || PackItems.Length == MaxNumberItems) return false;
+        if (item.Weight + CurrentWeight > MaxWeight || item.Volume + CurrentVolume > MaxVolume)
+        {
+            Console.WriteLine("*** Sorry, that won't fit ***");
+            return false;
+        }
 
         CurrentWeight += item.Weight;
         CurrentVolume += item.Volume;
