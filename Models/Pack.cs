@@ -13,7 +13,7 @@ public class Pack
     public InventoryItem[] PackItems { get; set; } = new InventoryItem[MaxNumberItems];
 
     // Attempt to add items to the pack
-    public bool Add(InventoryItem item)
+    public bool Add(InventoryItem item, int arrayIndex)
     {
         if (item.Weight + CurrentWeight > MaxWeight || item.Volume + CurrentVolume > MaxVolume)
         {
@@ -24,7 +24,7 @@ public class Pack
         CurrentWeight += item.Weight;
         CurrentVolume += item.Volume;
 
-        PackItems.Append(item);
+        PackItems[arrayIndex] = item;
         return true;
     }
 }

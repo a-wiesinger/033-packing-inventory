@@ -25,7 +25,7 @@ public class PackManager
             switch (selection)
             {
                 case "1":
-                    pack.Add(new PackItems.Arrow());
+                    pack.Add(new PackItems.Arrow(), i);
                     pack.CurrentNumberItems++;
                     break;
                 case "2":
