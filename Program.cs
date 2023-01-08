@@ -2,4 +2,4 @@
 
 PackManager packManager = new PackManager();
 
-packManager.Start();
+packManager.ManageGame();

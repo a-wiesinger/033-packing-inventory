@@ -2,7 +2,7 @@ namespace _033_packing_inventory.Models;
 
 public class PackManager
 {
-    public void Start()
+    public void ManageGame()
     {
         // Menu for user selection
         Console.WriteLine("Items available to add to pack:");
@@ -17,24 +17,61 @@ public class PackManager
         Pack pack = new Pack();
 
         // Loop through to put as many items in our pack as possible
-        for (int i = 0; i < pack.PackItems.Length; i++)
+        while (true)
         {
+            int arrayCounter = 0;
+            
+            if (pack.CurrentNumberItems >= Pack.MaxNumberItems) break;
+            if (pack.CurrentWeight >= pack.MaxWeight) break;
+            if (pack.CurrentVolume >= pack.MaxVolume) break;
+            
             Console.Write("Please enter the number of the item you'd like to add to your pack:");
+
             string? selection = Console.ReadLine();
 
             switch (selection)
             {
                 case "1":
-                    pack.Add(new PackItems.Arrow(), i);
-                    pack.CurrentNumberItems++;
+                    if (pack.Add(new PackItems.Arrow(), arrayCounter))
+                    {
+                        pack.CurrentNumberItems++;
+                        arrayCounter++;
+                    }
                     break;
                 case "2":
+                    if (pack.Add(new PackItems.Bow(), arrayCounter))
+                    {
+                        pack.CurrentNumberItems++;
+                        arrayCounter++;
+                    }
                     break;
                 case "3":
+                    if (pack.Add(new PackItems.Rope(), arrayCounter))
+                    {
+                        pack.CurrentNumberItems++;
+                        arrayCounter++;
+                    }
                     break;
                 case "4":
+                    if (pack.Add(new PackItems.Water(), arrayCounter))
+                    {
+                        pack.CurrentNumberItems++;
+                        arrayCounter++;
+                    }
                     break;
                 case "5":
+                    if (pack.Add(new PackItems.FoodRations(), arrayCounter))
+                    {
+                        pack.CurrentNumberItems++;
+                        arrayCounter++;
+                    }
+                    break;
+                case "6":
+                    if (pack.Add(new PackItems.Sword(), arrayCounter))
+                    {
+                        pack.CurrentNumberItems++;
+                        arrayCounter++;
+                    }
                     break;
                 default:
                     break;
@@ -42,6 +79,8 @@ public class PackManager
             
             DisplayPackStatus(pack);
         }
+
+        DisplayEndingPackStats(pack);
     }
 
     public void DisplayPackStatus(Pack pack)
@@ -50,5 +89,17 @@ public class PackManager
         Console.WriteLine($"Number of item slots remaining: {pack.PackItems.Length - pack.CurrentNumberItems}");
         Console.WriteLine($"Current weight of items in pack: {pack.CurrentWeight}");
         Console.WriteLine($"Current volume of items in pack: {pack.CurrentVolume}");
+    }
+
+    public void DisplayEndingPackStats(Pack pack)
+    {
+        Console.Clear();
+        
+        Console.WriteLine("*******************************************************");
+        Console.WriteLine("Final Pack Info");
+        Console.WriteLine("*******************************************************");
+        Console.WriteLine($"Number of item slots used: {pack.CurrentNumberItems} out of {Pack.MaxNumberItems}");
+        Console.WriteLine($"Weight of items in pack: {pack.CurrentWeight}");
+        Console.WriteLine($"Volume of items in pack: {pack.CurrentVolume}");
     }
 }

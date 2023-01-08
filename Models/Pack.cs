@@ -2,9 +2,9 @@ namespace _033_packing_inventory.Models;
 
 public class Pack
 {
-    private static int MaxNumberItems { get; set; } = 5;
+    public static int MaxNumberItems { get; set; } = 5;
     public int MaxWeight { get; set; } = 30;
-    public float MaxVolume { get; set; } = 5f;
+    public float MaxVolume { get; set; } = 7f;
     
     public int CurrentNumberItems { get; set; }
     public int CurrentWeight { get; set; }
@@ -17,7 +17,9 @@ public class Pack
     {
         if (item.Weight + CurrentWeight > MaxWeight || item.Volume + CurrentVolume > MaxVolume)
         {
-            Console.WriteLine("*** Sorry, that won't fit ***");
+            Console.WriteLine("*****************************************");
+            Console.WriteLine("*** Sorry, that won't fit. Try again. ***");
+            Console.WriteLine("*****************************************");
             return false;
         }
 
