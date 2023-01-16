@@ -34,6 +34,7 @@ public class PackManager
                 case "1":
                     if (pack.Add(new PackItems.Arrow(), arrayCounter))
                     {
+                        Console.WriteLine(new PackItems.Arrow().ToString());
                         pack.CurrentNumberItems++;
                         arrayCounter++;
                     }

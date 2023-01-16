@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace _033_packing_inventory.Models;
 
 public class PackItems
@@ -8,6 +10,11 @@ public class PackItems
         {
 
         }
+
+        public override string ToString()
+        {
+            return "Arrow";
+        }
     }
 
     public class Bow : InventoryItem
@@ -15,6 +22,11 @@ public class PackItems
         public Bow() : base(1, 4f)
         {
             
+        }
+
+        public override string ToString()
+        {
+            return "Bow";
         }
     }
     
@@ -24,13 +36,23 @@ public class PackItems
         {
             
         }
+
+        public override string ToString()
+        {
+            return "Rope";
+        }
     }
-    
+
     public class Water : InventoryItem
     {
         public Water() : base(2, 3f)
         {
             
+        }
+
+        public override string ToString()
+        {
+            return "Water";
         }
     }
     
