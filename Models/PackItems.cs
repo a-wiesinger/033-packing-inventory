@@ -1,5 +1,3 @@
-using System.Globalization;
-
 namespace _033_packing_inventory.Models;
 
 public class PackItems
@@ -62,6 +60,11 @@ public class PackItems
         {
             
         }
+
+        public override string ToString()
+        {
+            return "Food Rations";
+        }
     }
     
     public class Sword : InventoryItem
@@ -69,6 +72,11 @@ public class PackItems
         public Sword() : base(5, 3f)
         {
             
+        }
+
+        public override string ToString()
+        {
+            return "Sword";
         }
     }
 }

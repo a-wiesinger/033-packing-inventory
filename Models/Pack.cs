@@ -29,4 +29,18 @@ public class Pack
         PackItems[arrayIndex] = item;
         return true;
     }
+
+    public override string ToString()
+    {
+        Console.Write("Pack contains: ");
+        foreach (var item in PackItems)
+        {
+            if (item != null)
+            {
+                Console.Write(" " + item);
+            }
+        }
+        Console.WriteLine();
+        return "";
+    }
 }

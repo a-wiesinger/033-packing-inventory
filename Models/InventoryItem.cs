@@ -10,9 +10,4 @@ public class InventoryItem
         Weight = weight;
         Volume = volume;
     }
-
-    public virtual string ToString()
-    {
-        return "";
-    }
 }

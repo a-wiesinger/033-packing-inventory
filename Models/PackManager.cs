@@ -15,12 +15,13 @@ public class PackManager
 
         // Create new Pack instance object
         Pack pack = new Pack();
+        
+        // Index for adding item in pack array
+        int packArrayIndex = 0;
 
         // Loop through to put as many items in our pack as possible
         while (true)
         {
-            int arrayCounter = 0;
-            
             if (pack.CurrentNumberItems >= Pack.MaxNumberItems) break;
             if (pack.CurrentWeight >= pack.MaxWeight) break;
             if (pack.CurrentVolume >= pack.MaxVolume) break;
@@ -32,46 +33,45 @@ public class PackManager
             switch (selection)
             {
                 case "1":
-                    if (pack.Add(new PackItems.Arrow(), arrayCounter))
+                    if (pack.Add(new PackItems.Arrow(), packArrayIndex))
                     {
-                        Console.WriteLine(new PackItems.Arrow().ToString());
                         pack.CurrentNumberItems++;
-                        arrayCounter++;
+                        packArrayIndex++;
                     }
                     break;
                 case "2":
-                    if (pack.Add(new PackItems.Bow(), arrayCounter))
+                    if (pack.Add(new PackItems.Bow(), packArrayIndex))
                     {
                         pack.CurrentNumberItems++;
-                        arrayCounter++;
+                        packArrayIndex++;
                     }
                     break;
                 case "3":
-                    if (pack.Add(new PackItems.Rope(), arrayCounter))
+                    if (pack.Add(new PackItems.Rope(), packArrayIndex))
                     {
                         pack.CurrentNumberItems++;
-                        arrayCounter++;
+                        packArrayIndex++;
                     }
                     break;
                 case "4":
-                    if (pack.Add(new PackItems.Water(), arrayCounter))
+                    if (pack.Add(new PackItems.Water(), packArrayIndex))
                     {
                         pack.CurrentNumberItems++;
-                        arrayCounter++;
+                        packArrayIndex++;
                     }
                     break;
                 case "5":
-                    if (pack.Add(new PackItems.FoodRations(), arrayCounter))
+                    if (pack.Add(new PackItems.FoodRations(), packArrayIndex))
                     {
                         pack.CurrentNumberItems++;
-                        arrayCounter++;
+                        packArrayIndex++;
                     }
                     break;
                 case "6":
-                    if (pack.Add(new PackItems.Sword(), arrayCounter))
+                    if (pack.Add(new PackItems.Sword(), packArrayIndex))
                     {
                         pack.CurrentNumberItems++;
-                        arrayCounter++;
+                        packArrayIndex++;
                     }
                     break;
                 default:
@@ -87,6 +87,7 @@ public class PackManager
     public void DisplayPackStatus(Pack pack)
     {
         Console.WriteLine("--------------------------------------------------------");
+        pack.ToString();
         Console.WriteLine($"Number of item slots remaining: {pack.PackItems.Length - pack.CurrentNumberItems}");
         Console.WriteLine($"Current weight of items in pack: {pack.CurrentWeight}");
         Console.WriteLine($"Current volume of items in pack: {pack.CurrentVolume}");
