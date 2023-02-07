@@ -87,7 +87,7 @@ public class PackManager
     public void DisplayPackStatus(Pack pack)
     {
         Console.WriteLine("--------------------------------------------------------");
-        pack.ToString();
+        Console.WriteLine($"Pack contents: {pack.ToString()}");
         Console.WriteLine($"Number of item slots remaining: {pack.PackItems.Length - pack.CurrentNumberItems}");
         Console.WriteLine($"Current weight of items in pack: {pack.CurrentWeight}");
         Console.WriteLine($"Current volume of items in pack: {pack.CurrentVolume}");
@@ -100,6 +100,7 @@ public class PackManager
         Console.WriteLine("*******************************************************");
         Console.WriteLine("Final Pack Info");
         Console.WriteLine("*******************************************************");
+        Console.WriteLine($"Final pack contents: {pack.ToString()}");
         Console.WriteLine($"Number of item slots used: {pack.CurrentNumberItems} out of {Pack.MaxNumberItems}");
         Console.WriteLine($"Weight of items in pack: {pack.CurrentWeight}");
         Console.WriteLine($"Volume of items in pack: {pack.CurrentVolume}");

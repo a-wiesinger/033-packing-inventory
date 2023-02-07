@@ -63,7 +63,7 @@ public class PackItems
 
         public override string ToString()
         {
-            return "Food Rations";
+            return "Food-Rations";
         }
     }
     

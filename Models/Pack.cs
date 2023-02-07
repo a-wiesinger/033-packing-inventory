@@ -32,15 +32,14 @@ public class Pack
 
     public override string ToString()
     {
-        Console.Write("Pack contains: ");
+        string packContents = "";
         foreach (var item in PackItems)
         {
             if (item != null)
             {
-                Console.Write(" " + item);
+                packContents += " " + item.ToString();
             }
         }
-        Console.WriteLine();
-        return "";
+        return packContents;
     }
 }
